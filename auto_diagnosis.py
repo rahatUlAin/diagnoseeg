@@ -368,7 +368,7 @@ if __name__ == "__main__":
     run_time = end_time - start_time
 
     log.info("Experiment runtime: {:.2f} sec".format(run_time))
-    th.save(exp.model.state_dict(), 'model/deep.pt')
+    th.save(exp.model.state_dict(), 'model/shallow.pt')
     # exp.model.squeeze = Identity()
     # exp.model.pool_nonlin_4 = Identity()
     # exp.model.conv_classifier = Identity()

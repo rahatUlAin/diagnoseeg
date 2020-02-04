@@ -105,14 +105,15 @@ def get_recording_length(file_path):
 def load_data(fname, preproc_functions, sensor_types=['EEG']):
     cnt, sfreq, n_samples, n_channels, chan_names, n_sec = get_info_with_mne(
         fname)
-    log.info("Load data...")
+    log.info("Load data..."+fname)
     ##edit to get on gpu
-    #("--------------------------------" + torch.cuda.get_device_name())
+    torch.cuda.set_device(1)
+    #print("--------------------------------" + torch.cuda.get_device_name(0))
 
     cnt.load_data()
     selected_ch_names = []
     if 'EEG' in sensor_types:
-        wanted_elecs = ['A1', 'STI 014', 'C3', 'C4', 'CZ', 'F3', 'F4', 'F7', 'F8', 'FP1',
+        wanted_elecs = ['A1', 'A2', 'C3', 'C4', 'CZ', 'F3', 'F4', 'F7', 'F8', 'FP1',
                         'FP2', 'FZ', 'O1', 'O2',
                         'P3', 'P4', 'PZ', 'T3', 'T4', 'T5', 'T6']
 

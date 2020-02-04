@@ -46,7 +46,7 @@ def get_info_with_mne(file_path):
     return edf_file, sampling_frequency, n_samples, n_signals, signal_names, duration
 
 cnt, sfreq, n_samples, n_channels, chan_names, n_sec = get_info_with_mne(
-        '0001404.edf')
+        '0000001.edf')
 print(cnt)
 print(sfreq)
 print( chan_names)
@@ -56,7 +56,7 @@ print(n_sec)
 cnt.load_data()
 selected_ch_names = []
 
-wanted_elecs = ['A1', 'STI 014', 'C3', 'C4', 'CZ', 'F3', 'F4', 'F7', 'F8', 'FP1',
+wanted_elecs = ['A1', 'A2', 'C3', 'C4', 'CZ', 'F3', 'F4', 'F7', 'F8', 'FP1',
 	        'FP2', 'FZ', 'O1', 'O2',
 	        'P3', 'P4', 'PZ', 'T3', 'T4', 'T5', 'T6']
 
@@ -65,10 +65,6 @@ for wanted_part in wanted_elecs:
     for ch_name in cnt.ch_names:#if ' ' + wanted_part + '-' in ch_name:
         if  wanted_part  in ch_name:
             wanted_found_name.append(ch_name)
-            print("ch_name"+ ch_name)
-            print("vs"+wanted_part)
-            print(wanted_found_name)
-
     assert len(wanted_found_name) == 1
     selected_ch_names.append(wanted_found_name[0])
 #edf_file = mne.io.read_raw_edf('0000014.edf',montage=None, eog=[ 'FP1', 'FP2','F3', 'F4',

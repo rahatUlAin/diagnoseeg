@@ -97,7 +97,7 @@ class CroppedDiagnosisMonitor(object):
 
 def compute_preds_per_trial(preds_per_batch, dataset, input_time_length,
                             n_stride):
-    from IPython.core.debugger import set_trace
+    #from IPython.core.debugger import set_trace
 
     #set_trace()
 
